@@ -1,0 +1,44 @@
+[
+  {
+    "name": "payment_links",
+    "type": "base",
+    "system": false,
+    "schema": [
+      { "name": "link_id",              "type": "text",   "required": true,  "unique": true,  "options": { "min": 6, "max": 32 } },
+      { "name": "type",                 "type": "select", "required": true,  "options": { "values": ["one-time", "recurring", "escrow"], "maxSelect": 1 } },
+      { "name": "creator",              "type": "text",   "required": true,  "options": { "min": 56, "max": 56 } },
+      { "name": "recipient",            "type": "text",   "required": true,  "options": { "min": 56, "max": 56 } },
+      { "name": "amount",               "type": "number", "required": false },
+      { "name": "allow_custom_amount",  "type": "bool" },
+      { "name": "token_type",           "type": "select", "required": true,  "options": { "values": ["XLM", "USDC"], "maxSelect": 1 } },
+      { "name": "token_issuer",         "type": "text",   "options": { "max": 56 } },
+      { "name": "status",               "type": "select", "required": true,  "options": { "values": ["active", "completed", "pending", "funded", "released", "refunded", "appealed", "expired"], "maxSelect": 1 } },
+      { "name": "memo",                 "type": "text",   "options": { "max": 280 } },
+      { "name": "created_at",           "type": "text",   "required": true,  "options": { "max": 40 } },
+      { "name": "link_url",             "type": "url",    "required": true },
+      { "name": "expires_at",           "type": "text",   "options": { "max": 40 } },
+      { "name": "payments",             "type": "json" },
+      { "name": "total_received",       "type": "number" },
+      { "name": "claimable_balance_id", "type": "text",   "options": { "max": 80 } },
+      { "name": "nonce",                "type": "text",   "options": { "max": 64 } },
+      { "name": "timeout_seconds",      "type": "number" },
+      { "name": "funded_at",            "type": "text",   "options": { "max": 40 } },
+      { "name": "released_at",          "type": "text",   "options": { "max": 40 } },
+      { "name": "refunded_at",          "type": "text",   "options": { "max": 40 } },
+      { "name": "appealed_at",          "type": "text",   "options": { "max": 40 } },
+      { "name": "appealed_by",          "type": "text",   "options": { "max": 56 } },
+      { "name": "paid_at",              "type": "text",   "options": { "max": 40 } },
+      { "name": "tx_signature",         "type": "text",   "options": { "max": 80 } }
+    ],
+    "indexes": [
+      "CREATE INDEX idx_payment_links_link_id   ON payment_links (link_id)",
+      "CREATE INDEX idx_payment_links_creator   ON payment_links (creator)",
+      "CREATE INDEX idx_payment_links_recipient ON payment_links (recipient)"
+    ],
+    "listRule":   "",
+    "viewRule":   "",
+    "createRule": "",
+    "updateRule": "",
+    "deleteRule": null
+  }
+]
