@@ -1,0 +1,25 @@
+{
+  "name": "paybeam",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PayBeam — shareable payment links on Stellar. One-time, recurring, or escrow-protected XLM and USDC.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paybeam/paybeam"
+  },
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm --workspace @paybeam/frontend run dev",
+    "build": "npm --workspace @paybeam/frontend run build",
+    "lint": "npm --workspace @paybeam/frontend run lint",
+    "preview": "npm --workspace @paybeam/frontend run preview",
+    "pb:setup": "bash scripts/pocketbase-setup.sh",
+    "pb:up": "docker compose up -d pocketbase",
+    "pb:down": "docker compose down",
+    "contracts:build": "cd contracts && cargo build --release --target wasm32-unknown-unknown",
+    "contracts:test": "cd contracts && cargo test"
+  }
+}
