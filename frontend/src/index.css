@@ -66,8 +66,8 @@
 
     --gradient-beam: linear-gradient(120deg, hsl(184 80% 52%) 0%, hsl(174 76% 48%) 60%, hsl(178 70% 32%) 100%);
     --gradient-card: linear-gradient(160deg, hsl(215 36% 9% / 0.85) 0%, hsl(215 42% 6% / 0.85) 100%);
-    --gradient-hero: radial-gradient(ellipse at 20% 30%, hsl(184 80% 52% / 0.10) 0%, transparent 55%),
-                     radial-gradient(ellipse at 80% 70%, hsl(174 76% 48% / 0.08) 0%, transparent 55%);
+    --gradient-hero: radial-gradient(circle at 18% 22%, hsl(184 80% 52% / 0.06) 0%, transparent 38%),
+                     radial-gradient(circle at 82% 14%, hsl(174 76% 48% / 0.05) 0%, transparent 38%);
 
     --shadow-sm: 0 1px 2px hsl(215 50% 0% / 0.4);
     --shadow-md: 0 6px 18px hsl(215 50% 0% / 0.5);
@@ -148,14 +148,13 @@
     );
   }
 
-  /* Beam grid: thinner, rotated, much more subtle than SolSend's grid */
+  /* Beam grid: thin lines, edge-to-edge */
   .beam-grid {
     background-image:
       linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
     background-size: 48px 48px;
     background-position: -1px -1px;
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
   }
 
   /* Diagonal beam streaks behind the hero */
@@ -235,7 +234,6 @@
       linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
     background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
   }
 
   /* Animated beam-glow accent (used on hero badges + buttons) */
