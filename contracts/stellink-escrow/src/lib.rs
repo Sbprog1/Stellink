@@ -1,6 +1,6 @@
-//! PayBeam — minimal Soroban escrow registry.
+//! Stellink — minimal Soroban escrow registry.
 //!
-//! Most of PayBeam's escrow flow is handled by Stellar's native primitive,
+//! Most of Stellink's escrow flow is handled by Stellar's native primitive,
 //! `createClaimableBalance`. That gives us multi-claimant predicates,
 //! auto-refund timeouts, and on-chain custody for free.
 //!
@@ -26,7 +26,7 @@ use soroban_sdk::{
 };
 
 #[contract]
-pub struct PaybeamEscrow;
+pub struct StellinkEscrow;
 
 /* ------------------------------------------------------------------ */
 /* Storage                                                            */
@@ -41,7 +41,7 @@ pub enum DataKey {
     Arbiter,
 }
 
-/// On-chain handle to a PayBeam link. We do not store the full link
+/// On-chain handle to a Stellink link. We do not store the full link
 /// metadata (recipient, amount, memo, …) because that lives off-chain in
 /// Supabase + the Stellar claimable balance itself. We only commit the
 /// 32-byte hash of the canonical link record so it's tamper-evident.
@@ -87,7 +87,7 @@ pub enum Error {
 /* ------------------------------------------------------------------ */
 
 #[contractimpl]
-impl PaybeamEscrow {
+impl StellinkEscrow {
     /// One-time initialisation. Sets the optional global arbiter.
     pub fn init(env: Env, arbiter: Option<Address>) {
         if let Some(addr) = arbiter {

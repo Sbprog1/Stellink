@@ -1,10 +1,10 @@
 <div align="center">
 
-# PayBeam
+# Stellink
 
 **Stop wiring up checkouts. Send a link.**
 
-PayBeam turns your Stellar address into a payment URL — for invoices you'd normally chase, subscriptions you'd normally build, and trades you'd normally argue over. Same five-second settlement on every one.
+Stellink turns your Stellar address into a payment URL — for invoices you'd normally chase, subscriptions you'd normally build, and trades you'd normally argue over. Same five-second settlement on every one.
 
 [![Stellar](https://img.shields.io/badge/Stellar-Testnet-22d3ee?style=flat-square)](https://stellar.org)
 [![Soroban](https://img.shields.io/badge/Soroban-Rust-14b8a6?style=flat-square)](https://soroban.stellar.org)
@@ -28,9 +28,9 @@ The escrow flow uses Stellar's native primitives — no custom contract is manda
 
 ## Why this exists
 
-Most payment-link products on Web3 either (a) lock you into a centralised checkout, or (b) ship as a chain-native primitive that only works for native gas tokens with no UX. PayBeam takes the middle path:
+Most payment-link products on Web3 either (a) lock you into a centralised checkout, or (b) ship as a chain-native primitive that only works for native gas tokens with no UX. Stellink takes the middle path:
 
-| | Stripe Payment Links | A typical chain-native sender | PayBeam |
+| | Stripe Payment Links | A typical chain-native sender | Stellink |
 |---|---|---|---|
 | Custodian | Stripe | None | None |
 | Settlement time | Hours / days | Seconds | **5 seconds** (Stellar finality) |
@@ -39,15 +39,15 @@ Most payment-link products on Web3 either (a) lock you into a centralised checko
 | Self-host | No | n/a | Yes — single binary backend |
 | Integrate as a merchant | API + SDK + webhooks | Custom | Just paste the URL |
 
-PayBeam is opinionated about being **the smallest possible thing that works**. The frontend is a static React app. The "backend" is a 30-MB PocketBase binary. The on-chain logic is whatever Stellar core already does. There is no custom indexer, no relayer service, no proprietary API.
+Stellink is opinionated about being **the smallest possible thing that works**. The frontend is a static React app. The "backend" is a 30-MB PocketBase binary. The on-chain logic is whatever Stellar core already does. There is no custom indexer, no relayer service, no proprietary API.
 
 ---
 
 ## Try it locally
 
 ```bash
-git clone https://github.com/<your-org>/paybeam.git
-cd paybeam
+git clone https://github.com/SustainOpen/Stellink.git
+cd stellink
 npm install
 
 # Optional: spin up PocketBase for cross-device link storage.
@@ -103,7 +103,7 @@ Stellar core enforces these. There is no off-chain escrow agent and no contract 
 ## Repository layout
 
 ```
-paybeam/
+stellink/
 ├── frontend/              Vite + React + Tailwind app — the entire user surface
 │   ├── src/
 │   │   ├── components/      CreateLink, LinkDetail, Dashboard, Header, WalletButton
@@ -114,9 +114,9 @@ paybeam/
 │   └── package.json
 │
 ├── contracts/             Soroban escrow registry (Rust)
-│   └── paybeam-escrow/
+│   └── stellink-escrow/
 │       └── src/
-│           ├── lib.rs       PaybeamEscrow contract
+│           ├── lib.rs       StellinkEscrow contract
 │           └── test.rs      cargo test suite
 │
 ├── scripts/
@@ -153,7 +153,7 @@ VITE_STELLAR_NETWORK=testnet
 VITE_POCKETBASE_URL=http://127.0.0.1:8090
 
 # Optional. Soroban escrow registry contract id, if you've deployed it.
-VITE_PAYBEAM_ESCROW_CONTRACT_ID=
+VITE_STELLINK_ESCROW_CONTRACT_ID=
 ```
 
 That's the whole config surface.
@@ -162,7 +162,7 @@ That's the whole config surface.
 
 ## Soroban contract
 
-The optional registry contract lives in `contracts/paybeam-escrow/`. It does **not** hold funds — claimable balances handle that. It indexes link records on-chain so an arbiter can later resolve disputes, and so a future indexer can verify integrity from a hash commit.
+The optional registry contract lives in `contracts/stellink-escrow/`. It does **not** hold funds — claimable balances handle that. It indexes link records on-chain so an arbiter can later resolve disputes, and so a future indexer can verify integrity from a hash commit.
 
 ```bash
 # Build
@@ -175,7 +175,7 @@ npm run contracts:test
 soroban contract deploy \
   --network testnet \
   --source <your-stellar-secret-key> \
-  --wasm contracts/target/wasm32-unknown-unknown/release/paybeam_escrow.wasm
+  --wasm contracts/target/wasm32-unknown-unknown/release/stellink_escrow.wasm
 ```
 
 Two of the four entry points (`appeal_link`, `resolve_appeal`) are deliberately stubbed. They're tagged `// TODO(contributor)` and described in [ROADMAP.md](./ROADMAP.md) — implementing them is a clean, self-contained contribution.
@@ -184,7 +184,7 @@ Two of the four entry points (`appeal_link`, `resolve_appeal`) are deliberately 
 
 ## Status
 
-PayBeam is **v0.1**. The happy paths work end-to-end on Stellar testnet:
+Stellink is **v0.1**. The happy paths work end-to-end on Stellar testnet:
 
 - ✅ Create one-time, recurring, and escrow links
 - ✅ Pay one-time and recurring links via Freighter
@@ -205,9 +205,9 @@ Known gaps before v1.0 are tracked in [ROADMAP.md](./ROADMAP.md):
 
 ## Contributing
 
-PayBeam is actively maintained and welcomes contributors. The shortest path:
+Stellink is actively maintained and welcomes contributors. The shortest path:
 
-1. Find an issue labelled [`good-first-issue`](https://github.com/paybeam/paybeam/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+1. Find an issue labelled [`good-first-issue`](https://github.com/SustainOpen/Stellink/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 2. Comment on it so we know you're picking it up.
 3. Open a PR.
 

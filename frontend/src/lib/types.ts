@@ -1,5 +1,5 @@
 /**
- * PayBeam — core types
+ * Stellink — core types
  *
  * Stellar-native payment link primitives. We use:
  *   - Native payments for one-time / recurring (Stellar payment op)
@@ -40,7 +40,7 @@ export function getEscrowRole(link: PaymentLink, walletAddress: string | null): 
   return "none";
 }
 
-/** Tokens supported by PayBeam on Stellar */
+/** Tokens supported by Stellink on Stellar */
 export type TokenType = "XLM" | "USDC";
 
 /** A single payment received on a link */
@@ -111,7 +111,7 @@ export interface CreateLinkParams {
  *  - Mainnet issuer: GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN (Circle)
  *  - Testnet issuer: GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5 (Circle test issuer)
  *
- * We default to testnet because PayBeam targets Stellar testnet for the demo.
+ * We default to testnet because Stellink targets Stellar testnet for the demo.
  */
 export const USDC_ISSUER_TESTNET =
   "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5";

@@ -1,5 +1,5 @@
 /**
- * PocketBase client for PayBeam.
+ * PocketBase client for Stellink.
  *
  * PocketBase is a single-binary backend with embedded SQLite. Contributors
  * download the `pocketbase` binary, run `./pocketbase serve`, and they get
@@ -24,5 +24,5 @@ if (!pb) {
   );
 }
 
-/** Collection name shared by every PocketBase deployment of PayBeam. */
+/** Collection name shared by every PocketBase deployment of Stellink. */
 export const LINKS_COLLECTION = "payment_links";

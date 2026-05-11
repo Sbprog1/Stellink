@@ -1,4 +1,4 @@
-# PayBeam — local development services
+# Stellink — local development services
 #
 # Spins up a PocketBase instance for the frontend to talk to. The frontend
 # itself runs locally with `npm run dev` (Vite hot-reloads better outside
@@ -14,7 +14,7 @@
 services:
   pocketbase:
     image: ghcr.io/muchobien/pocketbase:0.22.21
-    container_name: paybeam-pocketbase
+    container_name: stellink-pocketbase
     restart: unless-stopped
     command: ["--dir=/pb_data", "--http=0.0.0.0:8090"]
     ports:

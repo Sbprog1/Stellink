@@ -3,12 +3,12 @@
 use super::*;
 use soroban_sdk::{testutils::Address as _, Env, BytesN};
 
-fn setup() -> (Env, Address, PaybeamEscrowClient<'static>) {
+fn setup() -> (Env, Address, StellinkEscrowClient<'static>) {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(PaybeamEscrow, ());
-    let client = PaybeamEscrowClient::new(&env, &contract_id);
+    let contract_id = env.register(StellinkEscrow, ());
+    let client = StellinkEscrowClient::new(&env, &contract_id);
 
     let arbiter = Address::generate(&env);
     client.init(&Some(arbiter.clone()));

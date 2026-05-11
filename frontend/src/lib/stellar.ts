@@ -1,5 +1,5 @@
 /**
- * PayBeam — Stellar transaction builders.
+ * Stellink — Stellar transaction builders.
  *
  * We use Stellar's built-in primitives:
  *   - `Operation.payment` for one-time and recurring direct payments
@@ -35,7 +35,7 @@ import type { TokenType } from "./types";
 /** Singleton Horizon server */
 export const horizon = new Horizon.Server(HORIZON_URL);
 
-/** Resolve a Stellar Asset for the given PayBeam token type */
+/** Resolve a Stellar Asset for the given Stellink token type */
 export function getAsset(tokenType: TokenType): Asset {
   if (tokenType === "XLM") return Asset.native();
   return new Asset("USDC", USDC_ISSUER);
@@ -123,7 +123,7 @@ interface BuildClaimableBalanceOptions {
 }
 
 /**
- * Build a `createClaimableBalance` transaction. This is PayBeam's escrow primitive.
+ * Build a `createClaimableBalance` transaction. This is Stellink's escrow primitive.
  *
  * Claimants:
  *   - Recipient: claimable immediately (predicate = unconditional)

@@ -2,7 +2,7 @@ import type { PaymentLink, CreateLinkParams, LinkStatus, PaymentRecord } from ".
 import { USDC_ISSUER } from "./configAddress";
 import { pb, isPocketBaseEnabled, LINKS_COLLECTION } from "./pocketbase";
 
-const STORAGE_KEY = "paybeam_links";
+const STORAGE_KEY = "stellink_links";
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -71,7 +71,7 @@ function cacheUpsert(link: PaymentLink) {
 // ─── PocketBase record ↔ PaymentLink mapping ────────────────────────────────
 
 // PocketBase represents records as JS objects with snake_case fields. We
-// translate to/from PayBeam's camelCase TypeScript shape here.
+// translate to/from Stellink's camelCase TypeScript shape here.
 
 type PbRecord = Record<string, unknown> & { id: string; collectionId?: string };
 

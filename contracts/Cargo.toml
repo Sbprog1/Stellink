@@ -1,14 +1,14 @@
 [workspace]
 resolver = "2"
 members = [
-  "paybeam-escrow",
+  "stellink-escrow",
 ]
 
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/paybeam/paybeam"
+repository = "https://github.com/SustainOpen/Stellink"
 
 [workspace.dependencies]
 soroban-sdk = "21.7"

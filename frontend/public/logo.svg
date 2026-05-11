@@ -4,61 +4,72 @@
       <stop offset="0%" stop-color="#0a1929"/>
       <stop offset="100%" stop-color="#0f2a3f"/>
     </linearGradient>
-    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#22d3ee"/>
+    <linearGradient id="link" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#22d3ee"/>
       <stop offset="100%" stop-color="#14b8a6"/>
     </linearGradient>
-    <linearGradient id="beamFade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0"/>
-      <stop offset="60%"  stop-color="#22d3ee" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#14b8a6" stop-opacity="1"/>
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0.0"/>
+      <stop offset="50%"  stop-color="#22d3ee" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.9"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0.45"/>
+    <radialGradient id="starGlowL" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0.55"/>
       <stop offset="60%"  stop-color="#22d3ee" stop-opacity="0.10"/>
       <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="starGlowR" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#14b8a6" stop-opacity="0.55"/>
+      <stop offset="60%"  stop-color="#14b8a6" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <!-- Rounded square card -->
+  <!-- Rounded card -->
   <rect width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
 
-  <!-- Soft glow behind the beam target -->
-  <circle cx="368" cy="256" r="160" fill="url(#glow)"/>
+  <!-- Soft glows behind the two stars -->
+  <circle cx="120" cy="200" r="100" fill="url(#starGlowL)"/>
+  <circle cx="392" cy="312" r="100" fill="url(#starGlowR)"/>
 
-  <!-- Source dot (origin of the beam) -->
-  <circle cx="120" cy="256" r="22" fill="#22d3ee"/>
-  <circle cx="120" cy="256" r="36" fill="#22d3ee" opacity="0.18"/>
-
-  <!-- Three diverging beam rays -->
-  <path d="M 132 252
-           Q 220 220 380 196"
-        stroke="url(#beamFade)"
-        stroke-width="10"
-        fill="none"
-        stroke-linecap="round"/>
-
-  <path d="M 134 256
-           L 388 256"
-        stroke="url(#beamFade)"
+  <!-- The link / trail between the two stars (diagonal arc) -->
+  <path d="M 138 218
+           Q 256 256 374 294"
+        stroke="url(#trail)"
         stroke-width="14"
         fill="none"
         stroke-linecap="round"/>
 
-  <path d="M 132 260
-           Q 220 292 380 316"
-        stroke="url(#beamFade)"
-        stroke-width="10"
-        fill="none"
-        stroke-linecap="round"/>
+  <!-- Particle dots along the trail to imply motion -->
+  <circle cx="200" cy="240" r="4" fill="#22d3ee" opacity="0.55"/>
+  <circle cx="256" cy="256" r="5" fill="#22d3ee" opacity="0.75"/>
+  <circle cx="312" cy="272" r="4" fill="#14b8a6" opacity="0.65"/>
 
-  <!-- Target chevron (the "beam landing zone") -->
-  <path d="M 380 196
-           L 412 256
-           L 380 316"
-        stroke="url(#beam)"
-        stroke-width="22"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
+  <!-- Left star (4-point sparkle) -->
+  <g transform="translate(120 200)">
+    <path d="M 0 -54
+             L 14 -14
+             L 54 0
+             L 14 14
+             L 0 54
+             L -14 14
+             L -54 0
+             L -14 -14 Z"
+          fill="url(#link)"/>
+    <circle r="9" fill="#0a1929"/>
+  </g>
+
+  <!-- Right star (4-point sparkle) -->
+  <g transform="translate(392 312)">
+    <path d="M 0 -54
+             L 14 -14
+             L 54 0
+             L 14 14
+             L 0 54
+             L -14 14
+             L -54 0
+             L -14 -14 Z"
+          fill="url(#link)"/>
+    <circle r="9" fill="#0a1929"/>
+  </g>
 </svg>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# PayBeam — local PocketBase bootstrap
+# Stellink — local PocketBase bootstrap
 #
 # Downloads the PocketBase binary into `./.pocketbase/`, starts it on
 # 127.0.0.1:8090, then applies the schema from `scripts/pocketbase-schema.json`

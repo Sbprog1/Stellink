@@ -1,4 +1,4 @@
-# PayBeam Roadmap
+# Stellink Roadmap
 
 The roadmap is organised by horizon, not by date. Each item links back to a GitHub issue once the issue is filed; items without a link are open for proposal.
 
@@ -26,7 +26,7 @@ The roadmap is organised by horizon, not by date. Each item links back to a GitH
 
 - [ ] **Implement `appeal_link`** — record an on-chain appeal flag, gated by either creator or a recipient address committed at registration time. *(`good-first-issue`, see `lib.rs:appeal_link`)*
 - [ ] **Implement `resolve_appeal`** — arbiter-only entrypoint that emits a binding decision event; off-chain UI surfaces the resolution. *(`help-wanted`, see `lib.rs:resolve_appeal`)*
-- [ ] **Wire frontend to call `register_link`** after a successful claimable-balance creation — gated by `VITE_PAYBEAM_ESCROW_CONTRACT_ID`. *(`good-first-issue`)*
+- [ ] **Wire frontend to call `register_link`** after a successful claimable-balance creation — gated by `VITE_STELLINK_ESCROW_CONTRACT_ID`. *(`good-first-issue`)*
 - [ ] **Deployment script** — bash + Soroban CLI one-shot for testnet + mainnet. *(`devops`)*
 - [ ] **`.well-known/stellar.toml`** for SEP-10 auth used by Supabase RLS (links to v0.2 item).
 

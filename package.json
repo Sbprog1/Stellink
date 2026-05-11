@@ -1,21 +1,21 @@
 {
-  "name": "paybeam",
+  "name": "stellink",
   "version": "0.1.0",
   "private": true,
-  "description": "PayBeam — shareable payment links on Stellar. One-time, recurring, or escrow-protected XLM and USDC.",
+  "description": "Stellink — shareable payment links on Stellar. One-time, recurring, or escrow-protected XLM and USDC.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/paybeam/paybeam"
+    "url": "https://github.com/SustainOpen/Stellink"
   },
   "workspaces": [
     "frontend"
   ],
   "scripts": {
-    "dev": "npm --workspace @paybeam/frontend run dev",
-    "build": "npm --workspace @paybeam/frontend run build",
-    "lint": "npm --workspace @paybeam/frontend run lint",
-    "preview": "npm --workspace @paybeam/frontend run preview",
+    "dev": "npm --workspace @stellink/frontend run dev",
+    "build": "npm --workspace @stellink/frontend run build",
+    "lint": "npm --workspace @stellink/frontend run lint",
+    "preview": "npm --workspace @stellink/frontend run preview",
     "pb:setup": "bash scripts/pocketbase-setup.sh",
     "pb:up": "docker compose up -d pocketbase",
     "pb:down": "docker compose down",

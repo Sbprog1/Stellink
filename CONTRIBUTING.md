@@ -1,10 +1,10 @@
-# Contributing to PayBeam
+# Contributing to Stellink
 
-Thanks for considering a contribution. PayBeam is a small, focused codebase — the goal is to keep it that way.
+Thanks for considering a contribution. Stellink is a small, focused codebase — the goal is to keep it that way.
 
 ## Ground rules
 
-- **Pick an issue first.** Open work lives on the [issue tracker](https://github.com/paybeam/paybeam/issues). Comment on the one you want to tackle so we can avoid double-up.
+- **Pick an issue first.** Open work lives on the [issue tracker](https://github.com/SustainOpen/Stellink/issues). Comment on the one you want to tackle so we can avoid double-up.
 - **Keep PRs scoped.** One concern per PR. If a refactor finds a bug, open a separate PR for the fix.
 - **Match the existing code style.** TypeScript strict, no `any` unless commented, ESLint passes, Tailwind utility classes only, no emojis in source unless asked.
 - **Tests for contract changes.** Anything inside `contracts/` ships with `cargo test` coverage. Frontend has no test harness yet — see [ROADMAP.md](./ROADMAP.md) if you want to lay one down.
@@ -51,7 +51,7 @@ We use **Conventional Commits** for the title (`feat`, `fix`, `chore`, `docs`, `
 | PocketBase client    | `frontend/src/lib/pocketbase.ts`             |
 | Data access layer    | `frontend/src/lib/linkStore.ts`              |
 | PocketBase schema    | `scripts/pocketbase-schema.json`             |
-| Soroban contract     | `contracts/paybeam-escrow/src/lib.rs`        |
+| Soroban contract     | `contracts/stellink-escrow/src/lib.rs`        |
 
 Read [README.md](./README.md#architecture) before deeper changes.
 
@@ -59,7 +59,7 @@ Read [README.md](./README.md#architecture) before deeper changes.
 
 File an issue with:
 
-1. PayBeam version / commit hash
+1. Stellink version / commit hash
 2. Browser + Freighter version
 3. Network (testnet vs public)
 4. Reproduction steps

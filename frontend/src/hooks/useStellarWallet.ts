@@ -1,5 +1,5 @@
 /**
- * useStellarWallet — Freighter wallet integration for PayBeam.
+ * useStellarWallet — Freighter wallet integration for Stellink.
  *
  * Wraps `@stellar/freighter-api` so the rest of the app can pretend the wallet
  * is just a connected/disconnected state machine plus a `signAndSubmit(xdr)` helper.
@@ -32,7 +32,7 @@ export interface StellarWallet extends StellarWalletState {
   signAndSubmit: (unsignedXdr: string) => Promise<string>;
 }
 
-const DISCONNECTED_KEY = "paybeam:wallet:disconnected";
+const DISCONNECTED_KEY = "stellink:wallet:disconnected";
 
 export function useStellarWallet(): StellarWallet {
   const [state, setState] = useState<StellarWalletState>({

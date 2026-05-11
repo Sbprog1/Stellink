@@ -65,7 +65,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            PayBeam turns your Stellar address into a payment URL — for invoices
+            Stellink turns your Stellar address into a payment URL — for invoices
             you'd normally chase, subscriptions you'd normally build, and trades
             you'd normally argue over. Same five-second settlement on every one.
           </motion.p>

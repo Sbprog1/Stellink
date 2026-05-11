@@ -19,14 +19,14 @@ const Header: React.FC = () => {
           <div className="relative h-8 w-8 rounded-lg overflow-hidden ring-1 ring-primary/30 group-hover:ring-primary/60 transition-all">
             <img
               src="/logo.svg"
-              alt="PayBeam"
+              alt="Stellink"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div className="flex items-baseline gap-1.5">
             <span className="text-[15px] font-bold tracking-tight text-foreground leading-none">
-              PayBeam
+              Stellink
             </span>
             <span className="text-[10px] font-mono text-muted-foreground leading-none uppercase tracking-widest">
               v0.1

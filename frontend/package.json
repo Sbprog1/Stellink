@@ -1,8 +1,8 @@
 {
-  "name": "@paybeam/frontend",
+  "name": "@stellink/frontend",
   "private": true,
   "version": "0.1.0",
-  "description": "PayBeam frontend — Vite + React + Tailwind app.",
+  "description": "Stellink frontend — Vite + React + Tailwind app.",
   "type": "module",
   "scripts": {
     "dev": "vite --host",

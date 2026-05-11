@@ -1,10 +1,10 @@
 [package]
-name = "paybeam-escrow"
+name = "stellink-escrow"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 repository.workspace = true
-description = "PayBeam — minimal Soroban escrow registry for Stellar payment links."
+description = "Stellink — minimal Soroban escrow registry for Stellar payment links."
 
 [lib]
 crate-type = ["cdylib", "rlib"]

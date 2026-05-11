@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* ────────────────────────────────────────────────────────────────
-   PayBeam design tokens
+   Stellink design tokens
    ────────────────────────────────────────────────────────────────
    Palette: deep midnight base + cyan/teal beam accent.
    Typography: Sora (display + body), Geist Mono (numerics + addresses).
@@ -54,7 +54,7 @@
     --sidebar-border: 215 26% 12%;
     --sidebar-ring: 184 80% 52%;
 
-    /* PayBeam custom tokens */
+    /* Stellink custom tokens */
     --beam-cyan: 184 80% 52%;
     --beam-cyan-glow: 184 92% 62%;
     --beam-teal: 174 76% 48%;
