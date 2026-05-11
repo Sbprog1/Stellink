@@ -4,9 +4,11 @@ import CreateLink from "@/components/CreateLink";
 
 const Index: React.FC = () => {
   return (
-    <div className="container py-8 max-w-4xl">
+    <div className="container py-10 lg:py-14 max-w-6xl">
       <HeroSection />
-      <CreateLink />
+      <div id="create" className="scroll-mt-20">
+        <CreateLink />
+      </div>
     </div>
   );
 };
