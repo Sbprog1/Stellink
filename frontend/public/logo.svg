@@ -1,33 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- Background: dark navy with rounded corners, flush to edges -->
-  <rect width="512" height="512" rx="112" ry="112" fill="#1a2235"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1929"/>
+      <stop offset="100%" stop-color="#0f2a3f"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="beamFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#22d3ee" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#22d3ee" stop-opacity="0.45"/>
+      <stop offset="60%"  stop-color="#22d3ee" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
 
-  <!-- Outer brushstroke circle (open, gap at bottom-left) -->
-  <path d="M256 80
-    a176 176 0 1 1 -124.45 51.55"
-    fill="none"
-    stroke="white"
-    stroke-width="22"
-    stroke-linecap="round"
-    opacity="0.95"/>
+  <!-- Rounded square card -->
+  <rect width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
 
-  <!-- S letterform — brushstroke style, white -->
-  <path d="M300 175
-    c0 0 -20 -18 -50 -18
-    c-35 0 -58 22 -58 50
-    c0 28 20 42 55 52
-    c35 10 58 26 58 56
-    c0 32 -26 54 -65 54
-    c-32 0 -54 -16 -60 -22"
-    fill="none"
-    stroke="white"
-    stroke-width="26"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    opacity="0.95"/>
+  <!-- Soft glow behind the beam target -->
+  <circle cx="368" cy="256" r="160" fill="url(#glow)"/>
 
-  <!-- Three teal speed lines (left side, staggered) -->
-  <line x1="108" y1="228" x2="178" y2="228" stroke="#4ecdc4" stroke-width="18" stroke-linecap="round"/>
-  <line x1="96"  y1="268" x2="162" y2="268" stroke="#4ecdc4" stroke-width="18" stroke-linecap="round"/>
-  <line x1="108" y1="308" x2="170" y2="308" stroke="#4ecdc4" stroke-width="18" stroke-linecap="round"/>
+  <!-- Source dot (origin of the beam) -->
+  <circle cx="120" cy="256" r="22" fill="#22d3ee"/>
+  <circle cx="120" cy="256" r="36" fill="#22d3ee" opacity="0.18"/>
+
+  <!-- Three diverging beam rays -->
+  <path d="M 132 252
+           Q 220 220 380 196"
+        stroke="url(#beamFade)"
+        stroke-width="10"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <path d="M 134 256
+           L 388 256"
+        stroke="url(#beamFade)"
+        stroke-width="14"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <path d="M 132 260
+           Q 220 292 380 316"
+        stroke="url(#beamFade)"
+        stroke-width="10"
+        fill="none"
+        stroke-linecap="round"/>
+
+  <!-- Target chevron (the "beam landing zone") -->
+  <path d="M 380 196
+           L 412 256
+           L 380 316"
+        stroke="url(#beam)"
+        stroke-width="22"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
 </svg>

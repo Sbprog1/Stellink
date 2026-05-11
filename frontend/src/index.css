@@ -1,68 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ────────────────────────────────────────────────────────────────
+   PayBeam design tokens
+   ────────────────────────────────────────────────────────────────
+   Palette: deep midnight base + cyan/teal beam accent.
+   Typography: Sora (display + body), Geist Mono (numerics + addresses).
+*/
+
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 210 20% 95%;
+    /* Base canvas */
+    --background: 215 50% 4%;
+    --foreground: 200 20% 96%;
 
-    --card: 220 18% 7%;
-    --card-foreground: 210 20% 95%;
+    --card: 215 40% 7%;
+    --card-foreground: 200 20% 96%;
 
-    --popover: 220 18% 7%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 215 40% 7%;
+    --popover-foreground: 200 20% 96%;
 
-    --primary: 162 72% 46%;
-    --primary-foreground: 220 20% 4%;
+    /* Brand: cyan / teal */
+    --primary: 184 80% 52%;        /* #22d3ee-ish */
+    --primary-foreground: 215 50% 4%;
 
-    --secondary: 220 16% 12%;
-    --secondary-foreground: 210 20% 85%;
+    --secondary: 215 30% 12%;
+    --secondary-foreground: 200 18% 86%;
 
-    --muted: 220 14% 14%;
-    --muted-foreground: 215 14% 50%;
+    --muted: 215 25% 14%;
+    --muted-foreground: 210 15% 56%;
 
-    --accent: 162 72% 46%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 174 76% 48%;         /* teal accent */
+    --accent-foreground: 215 50% 4%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 56%;
+    --destructive-foreground: 200 20% 96%;
 
-    --border: 220 14% 14%;
-    --input: 220 14% 16%;
-    --ring: 162 72% 46%;
+    --border: 215 26% 16%;
+    --input: 215 26% 18%;
+    --ring: 184 80% 52%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    --sidebar-background: 220 18% 6%;
-    --sidebar-foreground: 210 20% 85%;
-    --sidebar-primary: 162 72% 46%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 14% 12%;
-    --sidebar-accent-foreground: 210 20% 85%;
-    --sidebar-border: 220 14% 12%;
-    --sidebar-ring: 162 72% 46%;
+    --sidebar-background: 215 40% 6%;
+    --sidebar-foreground: 200 18% 86%;
+    --sidebar-primary: 184 80% 52%;
+    --sidebar-primary-foreground: 215 50% 4%;
+    --sidebar-accent: 215 26% 12%;
+    --sidebar-accent-foreground: 200 18% 86%;
+    --sidebar-border: 215 26% 12%;
+    --sidebar-ring: 184 80% 52%;
 
-    /* Custom tokens */
-    --emerald: 162 72% 46%;
-    --emerald-glow: 162 72% 56%;
-    --emerald-muted: 162 40% 20%;
-    --surface-1: 220 18% 7%;
-    --surface-2: 220 16% 10%;
-    --surface-3: 220 14% 14%;
+    /* PayBeam custom tokens */
+    --beam-cyan: 184 80% 52%;
+    --beam-cyan-glow: 184 92% 62%;
+    --beam-teal: 174 76% 48%;
+    --beam-teal-deep: 178 70% 32%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(162 72% 46%) 0%, hsl(172 66% 50%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(220 20% 4%) 0%, hsl(220 24% 6%) 50%, hsl(220 20% 4%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(220 18% 8%) 0%, hsl(220 18% 6%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(162 72% 46% / 0.08) 0%, transparent 70%);
+    --surface-1: 215 40% 7%;
+    --surface-2: 215 32% 10%;
+    --surface-3: 215 28% 13%;
 
-    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 8px 30px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px hsl(162 72% 46% / 0.15);
-    --shadow-glow-sm: 0 0 20px hsl(162 72% 46% / 0.1);
+    --gradient-beam: linear-gradient(120deg, hsl(184 80% 52%) 0%, hsl(174 76% 48%) 60%, hsl(178 70% 32%) 100%);
+    --gradient-card: linear-gradient(160deg, hsl(215 36% 9% / 0.85) 0%, hsl(215 42% 6% / 0.85) 100%);
+    --gradient-hero: radial-gradient(ellipse at 20% 30%, hsl(184 80% 52% / 0.10) 0%, transparent 55%),
+                     radial-gradient(ellipse at 80% 70%, hsl(174 76% 48% / 0.08) 0%, transparent 55%);
+
+    --shadow-sm: 0 1px 2px hsl(215 50% 0% / 0.4);
+    --shadow-md: 0 6px 18px hsl(215 50% 0% / 0.5);
+    --shadow-lg: 0 14px 38px hsl(215 50% 0% / 0.6);
+    --shadow-beam: 0 0 32px hsl(184 80% 52% / 0.22);
+    --shadow-beam-sm: 0 0 16px hsl(184 80% 52% / 0.15);
   }
 }
 
@@ -74,165 +85,183 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'ss01', 'ss02';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+    font-feature-settings: 'ss01', 'zero';
+  }
+
+  /* Selection */
+  ::selection {
+    background: hsl(var(--beam-cyan) / 0.35);
+    color: hsl(var(--foreground));
   }
 }
 
 @layer components {
-  /* Wallet button override */
-  .wallet-adapter-button-trigger {
-    background: hsl(var(--primary)) !important;
-    color: hsl(var(--primary-foreground)) !important;
-    border-radius: var(--radius) !important;
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-    padding: 0.625rem 1.25rem !important;
-    height: auto !important;
-    line-height: 1.25rem !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    border: 1px solid hsl(var(--primary) / 0.3) !important;
-  }
-  
-  .wallet-adapter-button-trigger:hover {
-    background: hsl(var(--emerald-glow)) !important;
-    box-shadow: var(--shadow-glow-sm) !important;
-  }
-
-  .wallet-adapter-button {
-    background: hsl(var(--surface-2)) !important;
-    color: hsl(var(--foreground)) !important;
-    border-radius: var(--radius) !important;
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-weight: 500 !important;
-    border: 1px solid hsl(var(--border)) !important;
-  }
-
-  .wallet-adapter-button:hover {
-    background: hsl(var(--surface-3)) !important;
-  }
-
-  .wallet-adapter-modal-wrapper {
-    background: hsl(var(--card)) !important;
-    border: 1px solid hsl(var(--border)) !important;
-    border-radius: var(--radius) !important;
-  }
-
-  .wallet-adapter-modal-button-close {
-    background: hsl(var(--surface-2)) !important;
-  }
-
-  .wallet-adapter-modal-title {
-    color: hsl(var(--foreground)) !important;
-    font-family: 'Inter', system-ui, sans-serif !important;
-  }
-
-  .wallet-adapter-modal-list li {
-    border: none !important;
-  }
-
-  /* Glass card */
+  /* Glass card — dotted hairline border + frosted gradient */
   .glass-card {
-    background: hsl(var(--surface-1));
+    background: var(--gradient-card);
     border: 1px solid hsl(var(--border));
-    border-radius: var(--radius);
-    backdrop-filter: blur(12px);
+    border-radius: calc(var(--radius) + 0.25rem);
+    backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: var(--shadow-md);
   }
 
-  /* Pulse glow animation */
-  .pulse-glow {
-    animation: pulseGlow 3s ease-in-out infinite;
+  /* Beam outlined button alternative */
+  .beam-outline {
+    background: transparent;
+    border: 1px solid hsl(var(--beam-cyan) / 0.35);
+    color: hsl(var(--beam-cyan));
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .beam-outline:hover {
+    background: hsl(var(--beam-cyan) / 0.1);
+    border-color: hsl(var(--beam-cyan) / 0.55);
+    box-shadow: var(--shadow-beam-sm);
   }
 
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 20px hsl(162 72% 46% / 0.1); }
-    50% { box-shadow: 0 0 40px hsl(162 72% 46% / 0.2); }
+  /* Beam pulse for the wallet-connected indicator */
+  .beam-pulse {
+    animation: beamPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes beamPulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--beam-cyan) / 0.5); }
+    50%      { box-shadow: 0 0 0 6px hsl(var(--beam-cyan) / 0); }
   }
 
-  /* Shimmer */
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      hsl(var(--surface-2)) 0%,
-      hsl(var(--surface-3)) 50%,
-      hsl(var(--surface-2)) 100%
+  /* Hero scanlines — subtle horizontal scan ribbon */
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      hsl(var(--beam-cyan) / 0.025) 3px,
+      hsl(var(--beam-cyan) / 0.025) 4px
     );
-    background-size: 200% 100%;
-    animation: shimmer 2s ease-in-out infinite;
   }
 
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+  /* Beam grid: thinner, rotated, much more subtle than SolSend's grid */
+  .beam-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
   }
 
-  /* Status badges */
+  /* Diagonal beam streaks behind the hero */
+  .beam-rays::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(115deg,
+        transparent 0%,
+        transparent 35%,
+        hsl(var(--beam-cyan) / 0.06) 50%,
+        transparent 65%
+      ),
+      linear-gradient(115deg,
+        transparent 0%,
+        transparent 55%,
+        hsl(var(--beam-teal) / 0.05) 70%,
+        transparent 85%
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Status badges — cooler palette than SolSend */
   .status-pending {
-    background: hsl(45 93% 47% / 0.1);
-    color: hsl(45 93% 57%);
-    border: 1px solid hsl(45 93% 47% / 0.2);
+    background: hsl(38 92% 50% / 0.08);
+    color: hsl(38 92% 65%);
+    border: 1px solid hsl(38 92% 50% / 0.25);
   }
-
   .status-funded {
-    background: hsl(162 72% 46% / 0.1);
-    color: hsl(var(--primary));
-    border: 1px solid hsl(162 72% 46% / 0.2);
+    background: hsl(184 80% 52% / 0.08);
+    color: hsl(var(--beam-cyan-glow));
+    border: 1px solid hsl(184 80% 52% / 0.28);
   }
-
   .status-released {
-    background: hsl(217 91% 60% / 0.1);
-    color: hsl(217 91% 65%);
-    border: 1px solid hsl(217 91% 60% / 0.2);
+    background: hsl(150 60% 48% / 0.08);
+    color: hsl(150 60% 62%);
+    border: 1px solid hsl(150 60% 48% / 0.25);
   }
-
   .status-active {
-    background: hsl(162 72% 46% / 0.1);
-    color: hsl(var(--primary));
-    border: 1px solid hsl(162 72% 46% / 0.2);
+    background: hsl(174 76% 48% / 0.08);
+    color: hsl(174 76% 62%);
+    border: 1px solid hsl(174 76% 48% / 0.25);
   }
-
   .status-appealed {
-    background: hsl(25 95% 53% / 0.1);
-    color: hsl(25 95% 63%);
-    border: 1px solid hsl(25 95% 53% / 0.2);
+    background: hsl(25 92% 56% / 0.08);
+    color: hsl(25 92% 68%);
+    border: 1px solid hsl(25 92% 56% / 0.25);
   }
-
   .status-refunded {
-    background: hsl(0 72% 51% / 0.1);
-    color: hsl(0 72% 61%);
-    border: 1px solid hsl(0 72% 51% / 0.2);
+    background: hsl(350 70% 56% / 0.08);
+    color: hsl(350 70% 68%);
+    border: 1px solid hsl(350 70% 56% / 0.25);
   }
 
-  /* Type badges */
+  /* Type badges — distinct hues per link type */
   .type-onetime {
-    background: hsl(217 91% 60% / 0.1);
-    color: hsl(217 91% 65%);
-    border: 1px solid hsl(217 91% 60% / 0.2);
+    background: hsl(184 80% 52% / 0.08);
+    color: hsl(184 80% 65%);
+    border: 1px solid hsl(184 80% 52% / 0.25);
   }
-
   .type-recurring {
-    background: hsl(280 67% 55% / 0.1);
-    color: hsl(280 67% 65%);
-    border: 1px solid hsl(280 67% 55% / 0.2);
+    background: hsl(265 70% 60% / 0.08);
+    color: hsl(265 70% 70%);
+    border: 1px solid hsl(265 70% 60% / 0.25);
   }
-
   .type-escrow {
-    background: hsl(45 93% 47% / 0.1);
-    color: hsl(45 93% 57%);
-    border: 1px solid hsl(45 93% 47% / 0.2);
+    background: hsl(38 92% 50% / 0.08);
+    color: hsl(38 92% 65%);
+    border: 1px solid hsl(38 92% 50% / 0.25);
   }
 
-  /* Grid pattern background */
+  /* Legacy grid-pattern alias to keep old class refs working until migration */
   .grid-pattern {
-    background-image: 
+    background-image:
       linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+  }
+
+  /* Animated beam-glow accent (used on hero badges + buttons) */
+  .beam-glow {
+    background: var(--gradient-beam);
+    background-size: 200% 100%;
+    animation: beamShift 6s ease-in-out infinite;
+  }
+  @keyframes beamShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+
+  /* shadcn .bg-emerald-glow shim — older components still reference it.
+     Kept as a forward to the cyan glow so we don't break button hovers. */
+  .bg-emerald-glow {
+    background-color: hsl(var(--beam-cyan-glow)) !important;
+    box-shadow: var(--shadow-beam-sm);
+  }
+
+  /* Fade-in helper used by motion-light components */
+  .animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 }
