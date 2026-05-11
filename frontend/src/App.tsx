@@ -12,7 +12,7 @@ import NotFound from "@/pages/NotFound";
 const App: React.FC = () => {
   return (
     <WalletProvider>
-      <div className="min-h-screen bg-background grid-pattern">
+      <div className="min-h-screen bg-background beam-grid scanlines relative">
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />

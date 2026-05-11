@@ -1,53 +1,67 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Plus } from "lucide-react";
+import { LayoutGrid, Sparkles, BookOpen } from "lucide-react";
 import WalletButton from "@/components/WalletButton";
 
 const Header: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: "/", label: "Create", icon: Plus },
-    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { path: "/", label: "Send", icon: Sparkles },
+    { path: "/dashboard", label: "Inbox", icon: LayoutGrid },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+      <div className="container flex h-14 items-center justify-between gap-4">
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img
-            src="/logo.svg"
-            alt="PayBeam"
-            className="h-9 w-9 rounded-xl object-cover"
-          />
-          <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight text-foreground leading-none">
+          <div className="relative h-8 w-8 rounded-lg overflow-hidden ring-1 ring-primary/30 group-hover:ring-primary/60 transition-all">
+            <img
+              src="/logo.svg"
+              alt="PayBeam"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-[15px] font-bold tracking-tight text-foreground leading-none">
               PayBeam
             </span>
-            <span className="text-[10px] font-medium text-muted-foreground leading-none mt-0.5">
-              Payment Links · Stellar
+            <span className="text-[10px] font-mono text-muted-foreground leading-none uppercase tracking-widest">
+              v0.1
             </span>
           </div>
         </Link>
 
-        <nav className="hidden sm:flex items-center gap-1">
+        {/* Nav */}
+        <nav className="hidden sm:flex items-center gap-0.5 p-0.5 rounded-lg border border-border/70 bg-secondary/40">
           {navItems.map(({ path, label, icon: Icon }) => {
             const isActive = location.pathname === path;
             return (
               <Link
                 key={path}
                 to={path}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                   isActive
-                    ? "bg-primary/10 text-primary border border-primary/20"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    ? "bg-primary/15 text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-3.5 w-3.5" />
                 {label}
               </Link>
             );
           })}
+          <a
+            href="https://github.com/paybeam/paybeam#readme"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <BookOpen className="h-3.5 w-3.5" />
+            Docs
+          </a>
         </nav>
 
         <WalletButton />
